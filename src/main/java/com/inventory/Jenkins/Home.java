@@ -9,11 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Test {
-    
+public class Home {
     private Long id; 
     private String name;
-    private String description;
-
-    
+    private String contact;
+    private String address;
 }
