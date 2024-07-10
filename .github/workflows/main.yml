@@ -1,21 +1,38 @@
-name: CICD using maven and SL Lab
+
+name: CICD using Maven for Inventory
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
 
 jobs:
-  buildandDeploy:
+  job1:
     runs-on: windows-latest
+
     steps:
-      - name: Clone the Repo
-        uses: actions/checkout@v4
-      - name: Setup JDK and maven
-        uses: actions/setup-java@v4
-        with:
-          java-version: '11'
-          distribution: 'adopt'
-          cache: 'maven'
-      - name: Build the project
-        run: mvn -B package --file pom.xml
+    - uses: actions/checkout@v2
+    - name: Run a multi-line script
+      run: |
+        echo This is my job1 workflow,
+        echo test, and deploy your project.
+
+    - name: Run a single-line script
+      run: |
+       echo Hello This  is my second workflow,
+       echo test, and deploy your project.
+
+# jobs:
+#   buildandDeploy:
+#     runs-on: windows-latest
+#     steps:
+#       - name: Clone the Repo
+#         uses: actions/checkout@v4
+#       - name: Setup JDK and maven
+#         uses: actions/setup-java@v4
+#         with:
+#           java-version: '11'
+#           distribution: 'adopt'
+#           cache: 'maven'
+#       - name: Build the project
+#         run: mvn -B package --file pom.xml
